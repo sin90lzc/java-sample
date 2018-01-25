@@ -1,4 +1,4 @@
-package com.dtc.sample.java.thread;
+package com.dtc.sample.java.concurrent;
 
 /**
  * 

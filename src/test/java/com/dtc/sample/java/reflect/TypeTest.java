@@ -122,8 +122,20 @@ public class TypeTest {
 		Assert.assertEquals("V", typeParameters[1].getTypeName());
 	}
 	
+	private HashMap<String,Object> map;
+	
 	@Test
-	public void test() {
+	public void test() throws NoSuchFieldException, SecurityException {
+		
+		Map<String,Object> mapin=new HashMap<>();
+		
+		Type rawType = ((ParameterizedType)this.getClass().getDeclaredField("map").getGenericType()).getRawType();
+		Class<?> fieldClass=(Class<?>)rawType;
+		System.out.println(fieldClass==mapin.getClass());
+		
+		System.out.println(fieldClass.getGenericSuperclass().getTypeName());
+		
+		System.out.println(mapin.getClass().getGenericSuperclass().getTypeName());
 		System.out.println(String.class.getTypeName());
 		
 	}
